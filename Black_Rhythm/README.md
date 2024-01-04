@@ -18,12 +18,12 @@ an invertible square matrix with the same number of rows as the number of rows i
 For example, consider two users who share a symmetric key that is equivalent to the matrix represented by
 $$
 \begin{pmatrix}
-1 & 0 & 0 \\\\
-1 & 1 & 0 \\\\
+1 & 0 & 0 \\
+1 & 1 & 0 \\
 0 & 1 & 1
 \end{pmatrix}
 $$
-If one user wants to send the message represented by the matrix $(0, 1, 1)$, they simply multiply the vector with the matrix and that is the encrypted vector. To decrypt, simply multiply by the inverse.
+If one user wants to send the message represented by the vector $(0, 1, 1)$, they simply multiply the vector with the matrix and that is the encrypted vector. To decrypt, simply multiply by the inverse.
 
 ### Group chats
 The app also  allows you to create chats with more than one user. Each group chat has its own symmetric key 
