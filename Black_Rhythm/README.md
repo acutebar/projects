@@ -18,8 +18,8 @@ an invertible square matrix with the same number of rows as the number of rows i
 For example, consider two users who share a symmetric key that is equivalent to the matrix represented by
 $$
 \begin{pmatrix}
-1 & 0 & 0 \\
-1 & 1 & 0 \\
+1 & 0 & 0 \\\\
+1 & 1 & 0 \\\\
 0 & 1 & 1
 \end{pmatrix}
 $$
@@ -38,9 +38,9 @@ The following are required to be preinstalled, apart from python:
 - Sagemath
 - MySQL
 ### Instructions
-- First, download the program and the dependencies on three computers. One will act as the server and the other two as users.
+- First, download the programs and the dependencies on three computers. One will act as the server and the other two as users.
 - Ensure that the SQL config file of the server is set up to allow other computers to connect. 
 - Obtain the IP address of the server computer.
-- Install the program on the other two computers as well and point the IP address in file `messenger.py` to the IP address of the server. Moreover, ensure that the program can connect to your local SQL server by modifying the password if required.
+- Download the programs and the dependencies on the other two computers as well and point the IP address in file `messenger.py` to the IP address of the server. Moreover, ensure that the program can connect to your local SQL server by modifying the password if required.
 - Start chatting by running `gui.py`
 
