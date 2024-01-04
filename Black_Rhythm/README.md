@@ -34,9 +34,9 @@ and pushed to all users in the chat.
 
 In fact, any chat is internally processed as a group chat. A DM is simply a group chat with not more than two members.
 
-## Running the Code
+## Running the code
 ### Dependencies
-The following are required to be preinstalled, apart from python:
+The following are required to be preinstalled:
 - Python (v3.8.10 or above)
 - Sagemath
 - MySQL
