@@ -35,6 +35,7 @@ In fact, any chat is internally processed as a group chat. A DM is simply a grou
 ## Running the Code
 ### Dependencies
 The following are required to be preinstalled, apart from python:
+- Python (v3.8.10 or above)
 - Sagemath
 - MySQL
 ### Instructions

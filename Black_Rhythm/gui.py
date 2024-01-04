@@ -20,6 +20,7 @@ class Text:
     YELLOW = '\033[93m'
     RED = '\033[91m'
 
+# async function that continuously updates display of a chat window
 def asyncly_display_chat(chat, window):
     global run_chat_thread
     local_interactions = interactions.copy()
@@ -37,13 +38,11 @@ def asyncly_display_chat(chat, window):
             message = str(interactions[chat][-1]['message'])
             timestamp =  str(interactions[chat][-1]['timestamp'])
             sender = str(interactions[chat][-1]['sender'])
-            #if sender != local_interactions[chat][-1]['sender']:
             window['-MESSAGES-'].update("\n" + sender + "\t" + f"({timestamp})" + "\n", font_for_value=('Courier', 12, 'bold'), append=True, autoscroll=True)
             window['-MESSAGES-'].update("| " + message + "\n", append=True, autoscroll=True)
-            #else:
-             #   window['-MESSAGES-'].update("| " + message + "\n", append=True, autoscroll=True)
             local_interactions = interactions.copy()
 
+# async function that continuously updates the list of chats
 def asyncly_list_chats(window, mycon, sercon):
     while True:
         time.sleep(2)
@@ -51,6 +50,7 @@ def asyncly_list_chats(window, mycon, sercon):
         #print("CHATS ARE ", chats)
         window['-CHATS-'].update(chats)
 
+# handles sign in
 def sign_in_window():
     try:
        fp = open("signindata.txt", "r")
@@ -90,6 +90,7 @@ def sign_in_window():
         window.close()
         return (values['-DNAME-'], values['-PWD-'])
 
+# window handling sign-up
 def sign_up_window():
     layout = [
                  [sg.Text('Display name: '), sg.InputText(key='-DNAME-')],
@@ -109,6 +110,7 @@ def sign_up_window():
     #print(values['-PWD-'])
     return (values['-DNAME-'], values['-PWD-'])
 
+# function to periodically update messages from sql server
 def receive_messages():
     global interactions
     global user
@@ -132,6 +134,7 @@ def receive_messages():
         sercon.close()
         mycon.close()
 
+# function to periodically update chats from sql server
 def accept_chat_invites():
     global user
     global pwd
@@ -149,6 +152,7 @@ def accept_chat_invites():
         sercon.close()
         mycon.close()
 
+# displays chats list
 def chats_window(chats, mycon, sercon):
   layout = [
                [sg.Button('+ New'), sg.Button('Exit')],
@@ -175,6 +179,7 @@ def chats_window(chats, mycon, sercon):
           return chat
   window.close()
 
+# displays the current chat window
 def current_chat_window(chats, chat, mycon, sercon):
     global run_chat_thread
     run_chat_thread = True
@@ -199,7 +204,6 @@ def current_chat_window(chats, chat, mycon, sercon):
         elif event == 'Send':
             message = values['-IN-']
             messenger.send(chat, message, mycon, sercon)
-            #window['-MESSAGES-'].update(message+'\n', append=True)
             window['-IN-'].update('')
         elif event == 'Add':
             window.close()
@@ -216,6 +220,7 @@ def current_chat_window(chats, chat, mycon, sercon):
     window.close()
     mycon.close()
 
+# window to create new chat
 def makechat(mycon, sercon):
     users = messenger.get_users(sercon)
     layout = [
@@ -262,6 +267,7 @@ def makechat(mycon, sercon):
             window['-MEMSTR-'].update(','.join(members_till_now))
     window.close()
 
+# window to add member to chat
 def add_chat_window(chats, chat, mycon, sercon):
     users = messenger.get_users(sercon)
     layout = [
@@ -310,6 +316,7 @@ def add_chat_window(chats, chat, mycon, sercon):
             window['-MEMSTR-'].update(','.join(members_till_now))
     window.close()
 
+# function to display members of chat
 def chat_members_window(chats, chat, mycon, sercon):
     members = messenger.get_chat_members(chat, mycon, sercon)
     layout = [
@@ -334,6 +341,7 @@ def chat_members_window(chats, chat, mycon, sercon):
             messenger.create_chat(DMname, alpha, mycon, sercon)
             current_chat_window(chats, DMname, mycon, sercon)
 
+# window to prompt for username
 def username_window(mycon, sercon):
     layout = [[sg.Text(key='-UP-')], [sg.Text('Enter username'), sg.InputText(key='-IN-'), sg.Button('Submit', bind_return_key=True)]]
     window = sg.Window('Create username', layout)
