@@ -1,3 +1,5 @@
+# Black Rhythm
+
 Black Rhythm is a basic messenger app that provides end-to-end encryption. The app uses asymmetric RSA encryption to exchange 
 symmetric keys to establish a secure channel. This repository contains the source code and instructions for the app.
 
