@@ -18,13 +18,13 @@ The message is first broken up into blocks, each of which is converted to a bina
 an invertible square matrix with the same number of rows as the number of rows in the vector. 
 
 For example, consider two users who share a symmetric key that is equivalent to the matrix represented by
-$$
+```math
 \begin{pmatrix}
-1 & 0 & 0 \\\\
-1 & 1 & 0 \\\\
+1 & 0 & 0 \\
+1 & 1 & 0 \\
 0 & 1 & 1
 \end{pmatrix}
-$$
+```
 If one user wants to send the message represented by the vector $(0, 1, 1)$, they simply multiply the vector with the matrix and that is the encrypted vector. To decrypt, simply multiply by the inverse.
 
 ### Group chats
