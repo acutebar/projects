@@ -1,4 +1,4 @@
-## CoWIN Vax Centers Aggregator, Filter, and Notifier
+# CoWIN Vax Centers Aggregator, Filter, and Notifier
 
 This utility allows you to fetch CoWIN vax centers in/around Bangalore.
 Centers roughly within 3-4 hrs driving distance are covered, and
