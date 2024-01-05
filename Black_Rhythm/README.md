@@ -3,6 +3,8 @@
 Black Rhythm is a basic messenger app that provides end-to-end encryption. The app uses asymmetric RSA encryption to exchange 
 symmetric keys to establish a secure channel. This repository contains the source code and instructions for the app.
 
+[![Watch the video](https://github.com/acutebar/projects/blob/main/Black_Rhythm/screencaps/blackrhythm-screencaps.png)](https://github.com/acutebar/projects/blob/main/Black_Rhythm/screencaps/blackrhythm-screencaps.mkv)
+
 ## Implementation
 The app is implemented using python with a central MySQL database. The central database stores encrypted messages and metadata of interactions between 
 users. Since only the encrypted cipher texts are stored, messages cannot be read by anyone, even if they have access to the server. RSA private keys
